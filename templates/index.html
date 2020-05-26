@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>{%block titulo%}Listado{% endblock titulo %}</title>
+</head>
+<body>
+    {% block cuerpo %}
+    <h1>wenareculiao</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+            <tr>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td>{{ persona.correo }}</td>
+                <td>
+                    <a href="{% url 'editar_persona' persona.id %}">EDITAR</a> | 
+                    <a href="{% url 'eliminar_persona' persona.id %}">ELIMINAR</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock cuerpo %}
+</body>
+</html>
